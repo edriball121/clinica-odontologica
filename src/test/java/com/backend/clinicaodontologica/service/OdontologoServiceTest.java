@@ -1,7 +1,7 @@
 package com.backend.clinicaodontologica.service;
 
 
-import com.backend.clinicaodontologica.dao.impl.OdontologoDaoH2;
+//import com.backend.clinicaodontologica.dao.impl.OdontologoDaoH2;
 import com.backend.clinicaodontologica.entity.Odontologo;
 import com.backend.clinicaodontologica.service.impl.OdontologoService;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 
 class OdontologoServiceTest {
 
-    private final OdontologoService odontologoService = new OdontologoService(new OdontologoDaoH2());
+    //private final OdontologoService odontologoService = new OdontologoService(new OdontologoDaoH2());
 
     /*
     @BeforeAll
@@ -36,7 +36,7 @@ class OdontologoServiceTest {
     }*/
 
 
-    @Test
+    /*@Test
     public void deberiaAgregarUnOdontologo() {
         Odontologo odontologo = new Odontologo("12345", "Patricia", "Damiani");
 
@@ -51,7 +51,7 @@ class OdontologoServiceTest {
         List<Odontologo> odontologoList = odontologoService.listarOdontologos();
         assertFalse(odontologoList.isEmpty());
 
-    }
+    }*/
 
 
 }

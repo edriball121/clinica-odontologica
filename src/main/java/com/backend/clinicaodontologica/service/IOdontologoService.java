@@ -7,14 +7,12 @@ import com.backend.clinicaodontologica.dto.salida.odontologo.OdontologoSalidaDto
 import java.util.List;
 
 public interface IOdontologoService {
-    List<OdontologoSalidaDto> listarOdontologos();
-
-
     OdontologoSalidaDto registrarOdontologo(OdontologoEntradaDto odontologo);
+    List<OdontologoSalidaDto> listarOdontologos();
 
     OdontologoSalidaDto buscarOdontologoPorId(Long id);
 
+    OdontologoSalidaDto actualizarOdontologo(OdontologoModificacionEntradaDto odontologoModificacionEntradaDto);
     void eliminarOdontologo(Long id);
 
-    OdontologoSalidaDto actualizarOdontologo(OdontologoModificacionEntradaDto odontologoModificacionEntradaDto);
 }
