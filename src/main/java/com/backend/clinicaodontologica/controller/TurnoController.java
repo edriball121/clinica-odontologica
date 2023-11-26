@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/turno")
+@RequestMapping("/turnos")
 public class TurnoController {
 
     private ITurnoService turnoService;
