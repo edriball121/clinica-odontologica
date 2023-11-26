@@ -47,7 +47,7 @@ public class PacienteService implements IPacienteService {
     }
 
     public List<PacienteSalidaDto> listarPacientes() {
-        List<PacienteSalidaDto> pacientesSalidaDto = pacienteRepository.findAll()
+        List<PacienteSalidaDto> pacientesSalidaDto = pacienteRepository.findAllPacientes()
                 .stream()
                 .map(paciente -> modelMapper.map(paciente, PacienteSalidaDto.class))
                 .toList();
@@ -67,7 +67,7 @@ public class PacienteService implements IPacienteService {
 
     @Override
     public PacienteSalidaDto buscarPacientePorId(Long id) {
-        Paciente pacienteBuscado = pacienteRepository.findById(id).orElse(null);
+        Paciente pacienteBuscado = pacienteRepository.findPacienteById(id).orElse(null);
         PacienteSalidaDto pacienteEncontrado = null;
 
         if (pacienteBuscado != null) {
@@ -81,7 +81,7 @@ public class PacienteService implements IPacienteService {
     @Override
     public PacienteSalidaDto actualizarPaciente(PacienteModificacionEntradaDto paciente) throws ResourceNotFoundException {
         Paciente pacienteRecibido = modelMapper.map(paciente, Paciente.class);
-        Paciente pacienteAActualizar = pacienteRepository.findById(pacienteRecibido.getId()).orElse(null);
+        Paciente pacienteAActualizar = pacienteRepository.findPacienteById(pacienteRecibido.getId()).orElse(null);
 
         PacienteSalidaDto pacienteSalidaDto = null;
 
@@ -104,7 +104,7 @@ public class PacienteService implements IPacienteService {
     @Override
     public void eliminarPaciente(Long id) throws ResourceNotFoundException {
         if (pacienteRepository.findById(id).orElse(null) != null) {
-            pacienteRepository.deleteById(id);
+            pacienteRepository.deletePacienteById(id);
             LOGGER.warn("Se ha eliminado el paciente con id: {}", id);
         } else {
             LOGGER.error("No se ha encontrado el paciente con id {}", id);

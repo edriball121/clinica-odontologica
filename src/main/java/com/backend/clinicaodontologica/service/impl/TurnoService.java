@@ -30,7 +30,7 @@ public class TurnoService implements ITurnoService {
     public TurnoService(TurnoRepository turnoRepository, ModelMapper modelMapper){
         this.turnoRepository = turnoRepository;
         this.modelMapper = modelMapper;
-        //configureMapping();
+        configureMapping();
     }
     @Override
     public TurnoSalidaDto registrarTurno(TurnoEntradaDto turno) {
@@ -100,7 +100,7 @@ public class TurnoService implements ITurnoService {
         }
     }
 
-    /*private void configureMapping(){
+    private void configureMapping(){
         return;
-    }*/
+    }
 }

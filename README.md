@@ -69,3 +69,33 @@ BODY:{
 
 - Eliminar odontologos 
 DELETE: https://localhost:8081/odontologos/eliminar/{id} * sin body
+
+
+# EndPoint: Turno
+- Agregar turno 
+POST: http://localhost:8081/turnos/registrar
+BOBY: {
+  "fechaYHora": "2023-11-25T22:30:00",
+  "odontologo": {
+  "id": 2
+  /*"matricula": "1234567894",
+  "nombre": "raton",
+  "apellido": "muelitas"*/
+  },
+  "paciente": {
+  "id": 3
+  /*"nombre": "paco",
+  "apellido": "jarras",
+  "dni": 122,
+  "fechaIngreso": "2023-11-22",
+  "domicilioEntradaDto": {
+  "calle": 11,
+  "numero": 10,
+  "localidad": "usme",
+  "provincia": "laredo"
+  }*/
+  }
+  }
+
+- Listar turnos 
+GET: http://localhost:8081/turnos/listar * sin body.
