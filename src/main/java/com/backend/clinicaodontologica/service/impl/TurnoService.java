@@ -45,7 +45,7 @@ public class TurnoService implements ITurnoService {
 
     @Override
     public List<TurnoSalidaDto> listarTurnos() {
-        List<TurnoSalidaDto> turnoSalidaDtos = turnoRepository.findAll()
+        List<TurnoSalidaDto> turnoSalidaDtos = turnoRepository.findAllTurnos()
                 .stream()
                 .map(turno -> modelMapper.map(turno, TurnoSalidaDto.class))
                 .toList();
