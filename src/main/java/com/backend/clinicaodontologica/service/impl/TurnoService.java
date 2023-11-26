@@ -6,6 +6,7 @@ import com.backend.clinicaodontologica.dto.salida.paciente.PacienteSalidaDto;
 import com.backend.clinicaodontologica.dto.salida.turno.TurnoSalidaDto;
 import com.backend.clinicaodontologica.entity.Paciente;
 import com.backend.clinicaodontologica.entity.Turno;
+import com.backend.clinicaodontologica.exceptions.ResourceNotFoundException;
 import com.backend.clinicaodontologica.repository.TurnoRepository;
 import com.backend.clinicaodontologica.service.ITurnoService;
 import com.backend.clinicaodontologica.utils.JsonPrinter;
@@ -68,7 +69,7 @@ public class TurnoService implements ITurnoService {
     }
 
     @Override
-    public TurnoSalidaDto actualizarTurno(TurnoModificacionEntradaDto turno) {
+    public TurnoSalidaDto actualizarTurno(TurnoModificacionEntradaDto turno) throws ResourceNotFoundException  {
         Turno turnoRecibido = modelMapper.map(turno, Turno.class);
         Turno turnoAActualizar = turnoRepository.findById(turnoRecibido.getId()).orElse(null);
 
@@ -83,18 +84,19 @@ public class TurnoService implements ITurnoService {
 
         } else {
             LOGGER.error("No fue posible actualizar el turno porque no se encuentra en nuestra base de datos");
+            throw new ResourceNotFoundException("No fue posible actualizar el turno porque no se encuentra en nuestra base de datos");
         }
         return turnoSalidaDto;
     }
 
     @Override
-    public void eliminarTurno(Long id) {
+    public void eliminarTurno(Long id) throws ResourceNotFoundException {
         if (turnoRepository.findById(id).orElse(null) != null) {
             turnoRepository.deleteById(id);
             LOGGER.warn("Se ha eliminado el turno con id: {}", id);
         } else {
             LOGGER.error("No se ha encontrado el turno con id {}", id);
-            //excepcion a lanzar aqui
+            throw new ResourceNotFoundException("No se ha encontrado el turno con id {}" + id);
         }
     }
 
