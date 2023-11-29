@@ -5,7 +5,7 @@
 - Odontologo: http://localhost:8081/odontologo.html
 - Paciente: http://localhost:8081/paciente.html
 - Turno: http://localhost:8081/turno.html
-- http://localhost:8081/login.html
+- login: http://localhost:8081/login.html
 
 # Clinica-odontologica
 MVC usando Spring Boot
