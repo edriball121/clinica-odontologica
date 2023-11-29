@@ -1,3 +1,7 @@
+# Login
+-  http://localhost:8081/login
+- Nota: las turas estan protegidas, debe loguear para poder acceder revise DataLoader para ver credenciales de acceso.
+
 # Swagger url test API
 - http://localhost:8081/doc/swagger-ui/index.html
 
