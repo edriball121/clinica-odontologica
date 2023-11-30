@@ -13,8 +13,8 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/pacientes")
+@CrossOrigin
 public class PacienteController {
 
     private IPacienteService pacienteService;

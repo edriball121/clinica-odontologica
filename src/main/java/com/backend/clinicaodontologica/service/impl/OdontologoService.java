@@ -87,7 +87,7 @@ public class OdontologoService implements IOdontologoService {
         return odontologoSalidaDto;
     }
 
-    public void eliminarOdontologo(Long id)  throws ResourceNotFoundException {
+    public OdontologoSalidaDto eliminarOdontologo(Long id)  throws ResourceNotFoundException {
         if (odontologoRepository.findById(id).orElse(null) != null) {
             odontologoRepository.deleteOdontologoById(id);
             LOGGER.warn("Se ha eliminado el odontologo con id: {}", id);
@@ -95,6 +95,7 @@ public class OdontologoService implements IOdontologoService {
             LOGGER.error("No se ha encontrado el odontologo con id {}", id);
             throw new ResourceNotFoundException("No se ha encontrado el odontologo con id {}" + id);
         }
+        return null;
     }
 
     private void configureMapping() {

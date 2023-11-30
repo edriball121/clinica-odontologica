@@ -56,4 +56,5 @@ public class OdontologoEntradaDto {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
 }
